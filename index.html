@@ -2,62 +2,86 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Ecoaldea Tanaj - Mapa Interactivo</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>Mapa Interactivo Ecoaldea Tanaj</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
   <link rel="stylesheet" href="css/estilo.css" />
 </head>
 <body>
-  <header>
-    <h1>Mapa Interactivo de Ecoaldea Tanaj</h1>
-  </header>
-  <div id="map"></div>
-  <div id="legend"></div>
+<header>
+  <h1>Mapa Interactivo de Ecoaldea Tanaj</h1>
+</header>
+<div id="map"></div>
+<div id="legend" class="legend"></div>
 
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
-  <script>
-    const map = L.map('map').setView([18.51, -89.88], 13);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© OpenStreetMap contributors'
-    }).addTo(map);
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 
-    const iconos = {
-      "Guardia Nacional": L.icon({ iconUrl: 'iconos/punto_1.png', iconSize: [30, 30], iconAnchor: [15, 30] }),
-      "Estacionamiento": L.icon({ iconUrl: 'iconos/punto_4.png', iconSize: [30, 30], iconAnchor: [15, 30] })
-    };
+<script>
+  const map = L.map('map').setView([18.51, -89.88], 13);
+  const base = L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
+    attribution: '© CartoDB, OpenStreetMap contributors'
+  }).addTo(map);
 
-    Papa.parse('data/Listado_de_Puntos.csv', {
-      download: true,
-      header: true,
-      complete: function(results) {
-        results.data.forEach(row => {
-          if (!row.Nombre || !row.Latitud || !row.Longitud) return;
-          const marker = L.marker([parseFloat(row.Latitud), parseFloat(row.Longitud)], {
-            icon: iconos[row.Tipo] || undefined
-          }).addTo(map);
+  // Grupos de capas
+  const capas = {
+    "Zonas Arqueológicas": L.layerGroup().addTo(map),
+    "Tren Maya": L.layerGroup().addTo(map),
+    "Servicios": L.layerGroup().addTo(map),
+    "Atractivos": L.layerGroup().addTo(map),
+    "Líneas": L.layerGroup().addTo(map)
+  };
 
-          const contenido = `
-            <h3>${row.Nombre}</h3>
-            <p>${row.Tipo}</p>
-            <img src="${row.Imagen || 'https://via.placeholder.com/300x150'}" style="width:100%;border-radius:8px;">
-            ${row.URL ? `<a href="${row.URL}" target="_blank">Más información</a>` : ""}
-          `;
-          marker.bindPopup(contenido);
-        });
-      }
-    });
+  // Íconos
+  const iconos = {
+    "Guardia Nacional": L.icon({ iconUrl: 'iconos/punto_1.png', iconSize: [30,30], iconAnchor: [15,30] }),
+    "Estacionamiento": L.icon({ iconUrl: 'iconos/punto_4.png', iconSize: [30,30], iconAnchor: [15,30] })
+  };
 
-    // Leyenda básica
-    const legend = document.getElementById('legend');
-    legend.innerHTML = `
-      <h4>Simbología</h4>
-      <ul>
-        <li><img src="iconos/punto_1.png" width="20"> Guardia Nacional</li>
-        <li><img src="iconos/punto_4.png" width="20"> Estacionamiento</li>
-      </ul>
-    `;
-  </script>
+  // Cargar CSV
+  Papa.parse("data/Listado_de_Puntos.csv", {
+    download: true,
+    header: true,
+    complete: function(results) {
+      const bounds = [];
+      results.data.forEach(row => {
+        if (!row.Nombre || !row.Latitud || !row.Longitud) return;
+        const tipo = row.Tipo || "Atractivos";
+        const icono = iconos[row.Tipo] || undefined;
+        const marker = L.marker([+row.Latitud, +row.Longitud], { icon: icono }).bindPopup(
+          `<h3>${row.Nombre}</h3><p>${tipo}</p>
+          <img src="${row.Imagen || 'https://via.placeholder.com/300x150'}" style="width:100%;border-radius:8px;">
+          ${row.URL ? `<br><a href="${row.URL}" target="_blank">Más información</a>` : ''}`
+        );
+        if (capas[tipo]) capas[tipo].addLayer(marker);
+        else capas["Atractivos"].addLayer(marker);
+        bounds.push([+row.Latitud, +row.Longitud]);
+      });
+      if (bounds.length > 0) map.fitBounds(bounds);
+    }
+  });
+
+  // Cargar líneas simuladas
+  const lineas = [
+    { coords: [[18.50, -89.89], [18.52, -89.87]], color: "#d95f02", label: "Camino a Zona Arqueológica de Calakmul" },
+    { coords: [[18.48, -89.90], [18.55, -89.85]], color: "#7570b3", label: "Carretera Champotón-Escárcega" },
+    { coords: [[18.47, -89.92], [18.53, -89.84]], color: "#1b9e77", label: "Carretera Escárcega-Chetumal" },
+    { coords: [[18.45, -89.88], [18.56, -89.88]], color: "#e7298a", label: "Tren Maya" }
+  ];
+  lineas.forEach(l => {
+    const polyline = L.polyline(l.coords, { color: l.color, weight: 4 }).bindPopup(l.label);
+    capas["Líneas"].addLayer(polyline);
+  });
+
+  // Leyenda con checkboxes
+  const leyendaHTML = `
+    <h4>Capas del mapa</h4>
+    ${Object.keys(capas).map(nombre => `
+      <label><input type="checkbox" checked onchange="this.checked ? map.addLayer(capas['${nombre}']) : map.removeLayer(capas['${nombre}'])" /> ${nombre}</label><br>
+    `).join('')}
+  `;
+  document.getElementById("legend").innerHTML = leyendaHTML;
+</script>
 </body>
 </html>
