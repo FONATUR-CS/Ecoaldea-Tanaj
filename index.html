@@ -278,7 +278,7 @@ Papa.parse("data/Listado_de_Puntos.csv", {
 
     
     
-            var map_28f93d986d40a553ec81187271fc34f9 = map = L.map(
+            var map_28f93d986d40a553ec81187271fc34f9 = window.map = L.map(
                 "map_28f93d986d40a553ec81187271fc34f9",
                 {
                     center: [18.53766, -89.90062],
@@ -909,8 +909,8 @@ Papa.parse("data/Listado_de_Puntos.csv", {
             );
         
 
-window.map = map_28f93d986d40a553ec81187271fc34f9;
+window.map = window.map_28f93d986d40a553ec81187271fc34f9;
 
-layers.puntos = L.layerGroup().addTo(map);
+layers.puntos = L.layerGroup().addTo(window.map);
 </script>
 </html>
