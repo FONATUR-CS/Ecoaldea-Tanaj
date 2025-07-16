@@ -83,5 +83,32 @@
   `;
   document.getElementById("legend").innerHTML = leyendaHTML;
 </script>
+
+  // Botón 'Estás aquí'
+  const btn = document.createElement('button');
+  btn.innerHTML = "📍";
+  btn.className = "pulse-btn";
+  btn.title = "Mostrar mi ubicación";
+  document.body.appendChild(btn);
+
+  btn.addEventListener('click', () => {
+    if (!navigator.geolocation) {
+      alert("La geolocalización no está soportada en este navegador.");
+      return;
+    }
+    navigator.geolocation.getCurrentPosition(pos => {
+      const lat = pos.coords.latitude;
+      const lon = pos.coords.longitude;
+      const userMarker = L.circleMarker([lat, lon], {
+        radius: 10,
+        color: '#ff5722',
+        fillColor: '#ff5722',
+        fillOpacity: 0.8
+      }).addTo(map).bindPopup("¡Estás aquí!").openPopup();
+      map.setView([lat, lon], 15, { animate: true });
+    }, () => alert("No se pudo obtener tu ubicación."));
+  });
+</script>
+
 </body>
 </html>
