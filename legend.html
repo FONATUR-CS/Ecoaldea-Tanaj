@@ -1,106 +1,20 @@
-
-<div id="legend" class="legend">
-  <div class="legend-toggle" onclick="this.classList.toggle('collapsed')">
-    🧭 <strong>Simbología</strong>
-  </div>
-
-    <div class="legend-group">
-      <div class="legend-title" style="font-weight:bold;font-size:1.1em;font-family:'Noto Sans';">Atractivos</div>
-      <ul class="legend-items" style="display:none">
-    
-        <li onclick="zoomTo('Laguna_de_Sylvituc')" data-id="Laguna_de_Sylvituc" data-lat="18.6395458" data-lon="-90.2804921">
-          <img src="iconos/punto_11.png" class="legend-icon"><span>Laguna de Sylvituc</span>
-        </li>
-        
-        <li onclick="zoomTo('Aguada_Km_27-Cocodrilo_y_venados')" data-id="Aguada_Km_27-Cocodrilo_y_venados" data-lat="18.3082781" data-lon="-89.857044">
-          <img src="iconos/punto_9.png" class="legend-icon"><span>Aguada Km 27-Cocodrilo y venados</span>
-        </li>
-        
-        <li onclick="zoomTo('Aguada_km_15_Tapires')" data-id="Aguada_km_15_Tapires" data-lat="18.3889335" data-lon="-89.8977838">
-          <img src="iconos/punto_10.png" class="legend-icon"><span>Aguada km 15, Tapires</span>
-        </li>
-        
-        <li onclick="zoomTo('Dormitorio_de_los_monos')" data-id="Dormitorio_de_los_monos" data-lat="18.2482375" data-lon="-89.8059097">
-          <img src="iconos/punto_8.png" class="legend-icon"><span>Dormitorio de los monos</span>
-        </li>
-        
-        <li onclick="zoomTo('Cueva_de_los_murcielagos')" data-id="Cueva_de_los_murcielagos" data-lat="18.5234222" data-lon="-89.8238143">
-          <img src="iconos/punto_7.png" class="legend-icon"><span>Cueva de los murciélagos</span>
-        </li>
-        </ul></div>
-    <div class="legend-group">
-      <div class="legend-title" style="font-weight:bold;font-size:1.1em;font-family:'Noto Sans';">Servicios</div>
-      <ul class="legend-items" style="display:none">
-    
-        <li onclick="zoomTo('Gasolinera_del_Bienestar')" data-id="Gasolinera_del_Bienestar" data-lat="18.53921982121233" data-lon="-89.90268826117062">
-          <img src="iconos/punto_2.png" class="legend-icon"><span>Gasolinera del Bienestar</span>
-        </li>
-        
-        <li onclick="zoomTo('Guardia_Nacional')" data-id="Guardia_Nacional" data-lat="" data-lon="">
-          <span>Guardía Nacional</span>
-        </li>
-        
-        <li onclick="zoomTo('Estacionamiento_Calakmul')" data-id="Estacionamiento_Calakmul" data-lat="" data-lon="">
-          <img src="iconos/punto_4.png" class="legend-icon"><span>Estacionamiento Calakmul</span>
-        </li>
-        </ul></div>
-    <div class="legend-group">
-      <div class="legend-title" style="font-weight:bold;font-size:1.1em;font-family:'Noto Sans';">Zonas Arqueológicas</div>
-      <ul class="legend-items" style="display:none">
-    
-        <li onclick="zoomTo('Zona_Arqueologica_Xpuhil')" data-id="Zona_Arqueologica_Xpuhil" data-lat="18.5106874" data-lon="-89.4063669">
-          <img src="iconos/punto_12.png" class="legend-icon"><span>Zona Arqueológica Xpuhil</span>
-        </li>
-        
-        <li onclick="zoomTo('Zona_Arqueologica_Chicanna')" data-id="Zona_Arqueologica_Chicanna" data-lat="18.5068426" data-lon="-89.4868319">
-          <img src="iconos/punto_17.png" class="legend-icon"><span>Zona Arqueológica Chicanná</span>
-        </li>
-        
-        <li onclick="zoomTo('Zona_Arqueologica_de_Becan')" data-id="Zona_Arqueologica_de_Becan" data-lat="18.516707" data-lon="-89.4657862">
-          <img src="iconos/punto_15.png" class="legend-icon"><span>Zona Arqueológica de Becán</span>
-        </li>
-        
-        <li onclick="zoomTo('Zona_Arqueologica_de_Calakmul')" data-id="Zona_Arqueologica_de_Calakmul" data-lat="18.1058665" data-lon="-89.8102324">
-          <img src="iconos/punto_14.png" class="legend-icon"><span>Zona Arqueológica de Calakmul</span>
-        </li>
-        
-        <li onclick="zoomTo('Zona_Arqueologica_de_Nadzca'an')" data-id="Zona_Arqueologica_de_Nadzca'an" data-lat="18.6067251" data-lon="-89.8461584">
-          <img src="iconos/punto_13.png" class="legend-icon"><span>Zona Arqueológica de Nadzca'an</span>
-        </li>
-        
-        <li onclick="zoomTo('Zona_Arqueologica_de_Balamku')" data-id="Zona_Arqueologica_de_Balamku" data-lat="18.5575854" data-lon="-89.9452691">
-          <img src="iconos/punto_16.png" class="legend-icon"><span>Zona Arqueológica de Balamkú</span>
-        </li>
-        </ul></div>
-    <div class="legend-group">
-      <div class="legend-title" style="font-weight:bold;font-size:1.1em;font-family:'Noto Sans';">Transportes</div>
-      <ul class="legend-items" style="display:none">
-    
-        <li onclick="zoomTo('Estacion_Centenario')" data-id="Estacion_Centenario" data-lat="18.61234330920191" data-lon="-90.73140499093059">
-          <img src="iconos/punto_6.png" class="legend-icon"><span>Estación Centenario</span>
-        </li>
-        
-        <li onclick="zoomTo('Estacion_Calakmul')" data-id="Estacion_Calakmul" data-lat="18.5314818153254" data-lon="-89.9038826369206">
-          <img src="iconos/punto_3.png" class="legend-icon"><span>Estación Calakmul</span>
-        </li>
-        
-        <li onclick="zoomTo('Estacion_Xpujil')" data-id="Estacion_Xpujil" data-lat="18.52647219773993" data-lon="-89.39660850331184">
-          <img src="iconos/punto_5.png" class="legend-icon"><span>Estación Xpujil</span>
-        </li>
-        
-        <li onclick="zoomTo('Camino_a_la_Zona_Arqueoloica_de_Calakmul')" data-id="Camino_a_la_Zona_Arqueoloica_de_Calakmul" data-lat="18.2628645" data-lon="-89.8222834">
-          <span>Camino a la Zona Arqueolóica de Calakmul</span>
-        </li>
-        
-        <li onclick="zoomTo('Carretera_Champoton-Escarcega')" data-id="Carretera_Champoton-Escarcega" data-lat="18.9452137" data-lon="-90.7239407">
-          <span>Carretera Champotón-Escárcega</span>
-        </li>
-        
-        <li onclick="zoomTo('Carretera_Escarcega-Chetumal')" data-id="Carretera_Escarcega-Chetumal" data-lat="18.5241123" data-lon="-89.7292864">
-          <span>Carretera Escárcega-Chetumal</span>
-        </li>
-        
-        <li onclick="zoomTo('Trazo_Tren_Maya')" data-id="Trazo_Tren_Maya" data-lat="20.5058604212394" data-lon="-87.2921632640654">
-          <span>Trazo Tren Maya</span>
-        </li>
-        </ul></div></div>
+<div id="legend" class="legend"><h4>LEYENDA</h4><details open><summary><strong>Lugares</strong></summary><ul>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.5376569, -89.9006171]);return false;">Ecoaldea Tanaj</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.5106874, -89.4063669]);return false;">Zona Arqueológica Xpuhil</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.5068426, -89.4868319]);return false;">Zona Arqueológica Chicanná</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.516707, -89.4657862]);return false;">Zona Arqueológica de Becán</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.1058665, -89.8102324]);return false;">Zona Arqueológica de Calakmul</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.6067251, -89.8461584]);return false;">Zona Arqueológica de Nadzca'an</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.5575854, -89.9452691]);return false;">Zona Arqueológica de Balamkú</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.61234330920191, -90.73140499093059]);return false;">Estación Centenario</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.5314818153254, -89.9038826369206]);return false;">Estación Calakmul</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.52647219773993, -89.39660850331184]);return false;">Estación Xpujil</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.53921982121233, -89.90268826117062]);return false;">Gasolinera del Bienestar</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.5312604963742, -89.90183440961458]);return false;">Guardía Nacional</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.11470025105679, -89.80119074112473]);return false;">Estacionamiento Zona Arqueológica Calakmul</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.6395458, -90.2804921]);return false;">Laguna de Sylvituc</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.3082781, -89.857044]);return false;">Aguada Km 27-Cocodrilo y venados</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.3889335, -89.8977838]);return false;">Aguada km 15, Tapires</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.2482375, -89.8059097]);return false;">Dormitorio de los monos</a></li>
+<li><img src="iconos/default.png" width="20" style="vertical-align:middle;margin-right:6px;"><a href="#" onclick="zoomTo([18.5234222, -89.8238143]);return false;">Cueva de los murciélagos</a></li>
+</ul></details></div>
