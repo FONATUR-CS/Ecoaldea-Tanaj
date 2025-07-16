@@ -1,0 +1,60 @@
+
+body {
+  font-family: 'Segoe UI', sans-serif;
+  margin: 0;
+  padding: 0;
+  background: #f4f4f4;
+}
+
+#legend-toggle {
+  position: fixed;
+  top: 20px;
+  left: 10px;
+  z-index: 10000;
+  background: #388e3c;
+  color: white;
+  font-weight: bold;
+  padding: 6px 14px;
+  border: none;
+  border-radius: 6px;
+  box-shadow: 1px 1px 4px rgba(0,0,0,0.3);
+  cursor: pointer;
+  font-size: 14px;
+}
+
+#legend {
+  position: fixed;
+  top: 60px;
+  left: 10px;
+  z-index: 9999;
+  background-color: #ffffff;
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+  font-size: 14px;
+  max-width: 250px;
+}
+#legend h4 {
+  margin-top: 0;
+  font-size: 16px;
+  color: #388e3c;
+}
+#legend img {
+  vertical-align: middle;
+  height: 26px;
+  margin: 4px 6px 4px 0;
+}
+
+
+/* Refuerzo de fuente Noto Sans en todo el mapa */
+body, .leaflet-container, .leaflet-control, .legend-item, h4, h5, span {
+    font-family: 'Noto Sans', sans-serif !important;
+}
+
+/* Estilo para títulos de grupos */
+#legend h5 {
+    font-weight: bold;
+    font-size: 1.3em;
+    font-family: 'Noto Sans', sans-serif;
+}

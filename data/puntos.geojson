@@ -1,0 +1,266 @@
+{
+  "type": "FeatureCollection",
+  "name": "Puntos_unificados",
+  "crs": {
+    "type": "name",
+    "properties": {
+      "name": "urn:ogc:def:crs:OGC:1.3:CRS84"
+    }
+  },
+  "features": [
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Ecoaldea Tanaj",
+        "Id": "punto_18"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.9006171,
+          18.5376569
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Zona Arqueológica Xpuhil",
+        "Id": "punto_12"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4063669,
+          18.5106874
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Zona Arqueológica Chicanná",
+        "Id": "punto_17"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4868319,
+          18.5068426
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Zona Arqueológica de Becán",
+        "Id": "punto_15"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.4657862,
+          18.516707
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Zona Arqueológica de Calakmul",
+        "Id": "punto_14"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.8102324,
+          18.1058665
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Zona Arqueológica de Nadzca'an",
+        "Id": "punto_13"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.8461584,
+          18.6067251
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Zona Arqueológica de Balamkú",
+        "Id": "punto_16"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.9452691,
+          18.5575854
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Estación Centenario",
+        "Id": "punto_6"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.73140499093059,
+          18.61234330920191
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Estación Calakmul",
+        "Id": "punto_3"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.9038826369206,
+          18.5314818153254
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Estación Xpujil",
+        "Id": "punto_5"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.39660850331184,
+          18.52647219773993
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Gasolinera del Bienestar",
+        "Id": "punto_2"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.90268826117062,
+          18.53921982121233
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Guardía Nacional",
+        "Id": "punto_1",
+        "Nombre": "Guardía Nacional"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.90183440961458,
+          18.5312604963742
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Estacionamiento Zona Arqueológica Calakmul",
+        "Id": "punto_4",
+        "Nombre": "Estacionamiento Zona Arqueológica Calakmul"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.80119074112473,
+          18.11470025105679
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Laguna de Sylvituc",
+        "Id": "punto_11"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -90.2804921,
+          18.6395458
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Aguada Km 27-Cocodrilo y venados",
+        "Id": "punto_9"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.857044,
+          18.3082781
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Aguada km 15, Tapires",
+        "Id": "punto_10"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.8977838,
+          18.3889335
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Dormitorio de los monos",
+        "Id": "punto_8"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.8059097,
+          18.2482375
+        ]
+      }
+    },
+    {
+      "type": "Feature",
+      "properties": {
+        "NAME": "Cueva de los murciélagos",
+        "Id": "punto_7"
+      },
+      "geometry": {
+        "type": "Point",
+        "coordinates": [
+          -89.8238143,
+          18.5234222
+        ]
+      }
+    }
+  ]
+}

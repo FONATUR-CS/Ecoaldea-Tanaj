@@ -1,0 +1,19 @@
+﻿id,Tipo,Subtipo,Nombre
+punto_1,Servicios,GN,Guardia Nacional
+punto_2,Servicios,gas,Gasolinera del Bienestar
+punto_3,Transporte,estacion_calakmul,Estación Calakmul
+punto_4,Servicios,estacionamiento,Estacionamiento Calakmul
+punto_5,Transporte,estacion_xpujil,Estación Xpujil
+punto_6,Transporte,estacion_centenario,Estación Centenario
+punto_7,Atrativos,1,Cueva de los murciélagos
+punto_8,Atrativos,2,Dormitorio de los monos
+punto_9,Atrativos,3,Aguada Km 27-Cocodrilo y venados
+punto_10,Atrativos,4,"Aguada km 15, Tapires"
+punto_11,Atrativos,5,Laguna de Sylvituc
+punto_12,Zonas Arqueológicas,6,Zona Arqueológica Xpuhil
+punto_13,Zonas Arqueológicas,2,Zona Arqueológica de Nadzca'an
+punto_14,Zonas Arqueológicas,3,Zona Arqueológica de Calakmul
+punto_15,Zonas Arqueológicas,4,Zona Arqueológica de Becán
+punto_16,Zonas Arqueológicas,1,Zona Arqueológica de Balamkú
+punto_17,Zonas Arqueológicas,5,Zona Arqueológica Chicanná
+punto_18,Ecoaldea,tanaj,Tanaj
