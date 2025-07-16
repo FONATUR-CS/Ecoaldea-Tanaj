@@ -32,7 +32,6 @@
             </style>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.js"></script>
 <link href="https://cdnjs.cloudflare.com/ajax/libs/leaflet.fullscreen/1.4.2/Control.FullScreen.min.css" rel="stylesheet"/>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 </head>
 <body>
 <div class="folium-map" id="map_28f93d986d40a553ec81187271fc34f9"></div>
@@ -190,15 +189,19 @@
   });
 </script>
 
+<script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.2/papaparse.min.js"></script>
 <script>
-  // Insertar puntos faltantes si no están en el GeoJSON
+  var layers = {
+    puntos: L.layerGroup().addTo(map_28f93d986d40a553ec81187271fc34f9)
+  };
+
+  // Insertar marcadores faltantes manualmente
   var iconGN = L.icon({
     iconUrl: 'iconos/punto_1.png',
     iconSize: [30, 30],
     iconAnchor: [15, 30],
     popupAnchor: [0, -30]
   });
-
   var iconEst = L.icon({
     iconUrl: 'iconos/punto_4.png',
     iconSize: [30, 30],
@@ -206,14 +209,33 @@
     popupAnchor: [0, -30]
   });
 
-  // Coordenadas aproximadas - ajustar si necesario
-  L.marker([18.507, -89.886], { icon: iconGN }).addTo(window.map)
+  L.marker([18.507, -89.886], { icon: iconGN }).addTo(layers.puntos)
     .bindPopup("<strong>Guardia Nacional</strong>");
-
-  L.marker([18.515, -89.870], { icon: iconEst }).addTo(window.map)
+  L.marker([18.515, -89.870], { icon: iconEst }).addTo(layers.puntos)
     .bindPopup("<strong>Estacionamiento Calakmul</strong>");
 
-  // Asegurar leyenda visual extendida con íconos para líneas (básico y simbólico)
+  // Cargar CSV y enriquecer popups de marcadores existentes
+  Papa.parse("data/Listado_de_Puntos.csv", {
+    download: true,
+    header: true,
+    complete: function(results) {
+      const csvData = results.data;
+      map_28f93d986d40a553ec81187271fc34f9.eachLayer(layer => {
+        if (layer instanceof L.Marker && layer.getPopup()) {
+          const popupText = layer.getPopup().getContent();
+          const match = csvData.find(row => popupText.includes(row.Nombre));
+          if (match) {
+            const img = match.Imagen ? match.Imagen : `https://via.placeholder.com/300x150.png?text=${encodeURIComponent(match.Nombre)}`;
+            const link = match.URL ? `<a href='${match.URL}' target='_blank'>Más info</a>` : "";
+            const content = `<h4>${match.Nombre}</h4><p>${match.Tipo}</p><img src='${img}' style='width:100%;border-radius:8px;'>${link}`;
+            layer.bindPopup(content);
+          }
+        }
+      });
+    }
+  });
+
+  // Leyenda visual extendida
   const legendHTML = `
     <div class='legend'>
       <h4>Simbología</h4>
@@ -239,46 +261,11 @@
   document.body.appendChild(div);
 </script>
 
-<script>
-let csvData = {};
-
-// Cargar CSV y asociar a puntos existentes en el mapa
-Papa.parse("data/Listado_de_Puntos.csv", {
-  download: true,
-  header: true,
-  complete: function(results) {
-    results.data.forEach(row => {
-      csvData[row.id] = row;
-    });
-
-    // Actualizar popups existentes
-    window.map.eachLayer(layer => {
-      if (layer instanceof L.Marker && layer.options.icon && layer.getPopup()) {
-        const iconUrl = layer.options.icon.options.iconUrl;
-        const idMatch = Object.keys(csvData).find(id => iconUrl.includes(id));
-        if (idMatch && csvData[idMatch]) {
-          const info = csvData[idMatch];
-          const nombre = info.Nombre || "Sin nombre";
-          const tipo = info.Tipo || "Sin tipo";
-          const desc = info.Descripcion || "";
-          const img = info.Imagen ? info.Imagen : `https://via.placeholder.com/300x150.png?text=${encodeURIComponent(nombre)}`;
-          const link = info.URL ? `<a href='${info.URL}' target='_blank'>Más info</a>` : "";
-          const content = `<h4>${nombre}</h4><p>${tipo}</p><p>${desc}</p><img src='${img}' style='width:100%;border-radius:8px;'>${link}`;
-          layer.bindPopup(content);
-        }
-      }
-    });
-  }
-});
-</script>
-
 </body>
-
-<script>let layers = {};
-
+<script>
     
     
-            var map_28f93d986d40a553ec81187271fc34f9 = window.map = L.map(
+            var map_28f93d986d40a553ec81187271fc34f9 = L.map(
                 "map_28f93d986d40a553ec81187271fc34f9",
                 {
                     center: [18.53766, -89.90062],
@@ -909,8 +896,6 @@ Papa.parse("data/Listado_de_Puntos.csv", {
             );
         
 
-window.map = window.map_28f93d986d40a553ec81187271fc34f9;
-
-layers.puntos = L.layerGroup().addTo(window.map);
+window.map = map_28f93d986d40a553ec81187271fc34f9;
 </script>
 </html>
