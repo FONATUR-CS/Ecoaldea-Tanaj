@@ -1,57 +1,104 @@
 <div class="legend">
-  <!-- Brújula como emoticono -->
+  <!-- Brújula 🧭 encima del título -->
   <div class="legend-compass">🧭</div>
 
-  <!-- Título principal -->
+  <!-- Contenedor principal “Simbología” -->
   <details>
     <summary><strong>Simbología</strong></summary>
 
-    <!-- Botón de reset (vista inicial) -->
+    <!-- Botón “Volver a inicio” con la casita -->
     <ul class="legend-reset">
       <li onclick="resetView()">
         🏡 Volver a inicio
       </li>
     </ul>
 
-    <!-- Grupo: Ecoaldea Tanaj (antes "Otros") -->
+    <!-- Grupo “Ecoaldea Tanaj” (antes “Otros”) -->
     <details>
       <summary>Ecoaldea Tanaj</summary>
       <ul>
         <li onclick="zoomTo([18.5376569, -89.9006171])">
-          <img src="iconos/punto_18.png" alt="" /> Ecoaldea Tanaj
+          <img src="iconos/punto_18.png" /> Ecoaldea Tanaj
         </li>
       </ul>
     </details>
 
-    <!-- Grupo: Zonas Arqueológicas -->
+    <!-- Grupo “Zonas Arqueológicas” -->
     <details>
       <summary>Zonas Arqueológicas</summary>
       <ul>
-        <!-- … tus ítems … -->
+        <li onclick="zoomTo([18.5106874, -89.4063669])">
+          <img src="iconos/punto_12.png" /> Zona Arqueológica Xpuhil
+        </li>
+        <li onclick="zoomTo([18.5068426, -89.4868319])">
+          <img src="iconos/punto_17.png" /> Zona Arqueológica Chicanná
+        </li>
+        <li onclick="zoomTo([18.516707, -89.4657862])">
+          <img src="iconos/punto_15.png" /> Zona Arqueológica de Becán
+        </li>
+        <li onclick="zoomTo([18.1058665, -89.8102324])">
+          <img src="iconos/punto_14.png" /> Zona Arqueológica de Calakmul
+        </li>
+        <li onclick="zoomTo([18.6067251, -89.8461584])">
+          <img src="iconos/punto_13.png" /> Zona Arqueológica de Nadzca’an
+        </li>
+        <li onclick="zoomTo([18.5575854, -89.9452691])">
+          <img src="iconos/punto_16.png" /> Zona Arqueológica de Balamkú
+        </li>
       </ul>
     </details>
 
-    <!-- Grupo: Estaciones del Tren -->
+    <!-- Grupo “Estaciones del Tren” -->
     <details>
       <summary>Estaciones del Tren</summary>
       <ul>
-        <!-- … tus ítems … -->
+        <li onclick="zoomTo([18.61234330920191, -90.73140499093059])">
+          <img src="iconos/punto_6.png" /> Estación Centenario
+        </li>
+        <li onclick="zoomTo([18.5314818153254, -89.9038826369206])">
+          <img src="iconos/punto_3.png" /> Estación Calakmul
+        </li>
+        <li onclick="zoomTo([18.52647219773993, -89.39660850331184])">
+          <img src="iconos/punto_5.png" /> Estación Xpujil
+        </li>
       </ul>
     </details>
 
-    <!-- Grupo: Infraestructura -->
+    <!-- Grupo “Infraestructura” -->
     <details>
       <summary>Infraestructura</summary>
       <ul>
-        <!-- … tus ítems … -->
+        <li onclick="zoomTo([18.53921982121233, -89.90268826117062])">
+          <img src="iconos/punto_2.png" /> Gasolinera del Bienestar
+        </li>
+        <li onclick="zoomTo([18.5312604963742, -89.90183440961458])">
+          <img src="iconos/punto_1.png" /> Guardia Nacional
+        </li>
+        <li onclick="zoomTo([18.11470025105679, -89.80119074112473])">
+          <img src="iconos/punto_4.png" /> Estacionamiento Calakmul
+        </li>
       </ul>
     </details>
 
-    <!-- Grupo: Atractivos Naturales -->
+    <!-- Grupo “Atractivos Naturales” -->
     <details>
       <summary>Atractivos Naturales</summary>
       <ul>
-        <!-- … tus ítems … -->
+        <li onclick="zoomTo([18.6395458, -90.2804921])">
+          <img src="iconos/punto_11.png" /> Laguna de Sylvituc
+        </li>
+        <li onclick="zoomTo([18.3082781, -89.857044])">
+          <img src="iconos/punto_9.png" /> Aguada Km 27 – Cocodrilo y Venados
+        </li>
+        <li onclick="zoomTo([18.3889335, -89.8977838])">
+          <img src="iconos/punto_10.png" /> Aguada Km 15 – Tapires
+        </li>
+        <li onclick="zoomTo([18.2482375, -89.8059097])">
+          <img src="iconos/punto_8.png" /> Dormitorio de los monos
+        </li>
+        <li onclick="zoomTo([18.5234222, -89.8238143])">
+          <img src="iconos/punto_7.png" /> Cueva de los murciélagos
+        </li>
       </ul>
     </details>
 
@@ -59,10 +106,13 @@
 </div>
 
 <style>
-  /* fuente Noto Sans ya importada en index.html */
+  /* Fuente Noto Sans */
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
   .legend {
     position: absolute;
-    top: 10px; right: 10px;
+    top: 10px;
+    right: 10px;
     width: 240px;
     background: #4e2c1d;
     color: white;
@@ -80,32 +130,29 @@
   .legend details {
     border-top: 1px solid rgba(255,255,255,0.3);
   }
-
-  /* ---- 1) Aseguramos posición relativa y espacio para el gráfico ---- */
+  /* Espacio para INFOTANAJ_rec.png */
   .legend details > summary {
     position: relative;
-    padding-left: 48px;  /* deja hueco para INFOTANAJ_rec.png */
+    padding-left: 48px;
     font-weight: 700;
     font-size: 12pt;
     cursor: pointer;
     list-style: none;
   }
-
-  /* ---- 2) Pseudo-elemento ::before con tu gráfico de fondo ---- */
+  /* Inserta INFOTANAJ_rec.png detrás del texto */
   .legend details > summary::before {
     content: "";
     position: absolute;
-    left: 8px;           /* espacio desde el borde izquierdo */
+    left: 8px;
     top: 50%;
     transform: translateY(-50%);
-    width: 32px;         /* ancho de tu INFOTANAJ_rec.png */
-    height: 32px;        /* alto de tu INFOTANAJ_rec.png */
+    width: 32px;
+    height: 32px;
     background-image: url('iconos/INFOTANAJ_rec.png');
     background-size: contain;
     background-repeat: no-repeat;
-    z-index: -1;         /* detrás del texto */
+    z-index: -1;
   }
-
   .legend ul {
     list-style: none;
     margin: 0;
