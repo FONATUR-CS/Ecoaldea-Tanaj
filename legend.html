@@ -1,54 +1,104 @@
-
 <div class="legend">
-  <div style="text-align:center; font-size: 22px;">🧭</div>
+  <!-- Brújula como emoticono -->
+  <div class="legend-compass">🧭</div>
+
+  <!-- Título principal -->
   <details>
     <summary><strong>Simbología</strong></summary>
-    
+
+    <!-- Botón de reset (vista inicial) -->
+    <ul class="legend-reset">
+      <li onclick="resetView()">
+        <img src="iconos/reset.png" alt="Reset" /> Volver a inicio
+      </li>
+    </ul>
+
+    <!-- Grupo: Ecoaldea Tanaj (antes "Otros") -->
     <details>
       <summary>Ecoaldea Tanaj</summary>
       <ul>
-        <li onclick="zoomTo([18.5376569, -89.9006171])"><img src='iconos/punto_18.png'> Ecoaldea Tanaj</li>
+        <li onclick="zoomTo([18.5376569, -89.9006171])">
+          <img src="iconos/punto_18.png" alt="" /> Ecoaldea Tanaj
+        </li>
       </ul>
     </details>
-    
+
+    <!-- Grupo: Zonas Arqueológicas -->
     <details>
       <summary>Zonas Arqueológicas</summary>
       <ul>
-        <li onclick="zoomTo([18.5106874, -89.4063669])"><img src='iconos/punto_12.png'> Zona Arqueológica Xpuhil</li>
-        <li onclick="zoomTo([18.5068426, -89.4868319])"><img src='iconos/punto_17.png'> Zona Arqueológica Chicanná</li>
-        <li onclick="zoomTo([18.516707, -89.4657862])"><img src='iconos/punto_15.png'> Zona Arqueológica de Becán</li>
-        <li onclick="zoomTo([18.1058665, -89.8102324])"><img src='iconos/punto_14.png'> Zona Arqueológica de Calakmul</li>
-        <li onclick="zoomTo([18.6067251, -89.8461584])"><img src='iconos/punto_13.png'> Zona Arqueológica de Nadzca'an</li>
-        <li onclick="zoomTo([18.5575854, -89.9452691])"><img src='iconos/punto_16.png'> Zona Arqueológica de Balamkú</li>
+        <li onclick="zoomTo([18.5106874, -89.4063669])">
+          <img src="iconos/punto_12.png" alt="" /> Zona Arqueológica Xpuhil
+        </li>
+        <li onclick="zoomTo([18.5068426, -89.4868319])">
+          <img src="iconos/punto_17.png" alt="" /> Zona Arqueológica Chicanná
+        </li>
+        <li onclick="zoomTo([18.516707, -89.4657862])">
+          <img src="iconos/punto_15.png" alt="" /> Zona Arqueológica de Becán
+        </li>
+        <li onclick="zoomTo([18.1058665, -89.8102324])">
+          <img src="iconos/punto_14.png" alt="" /> Zona Arqueológica de Calakmul
+        </li>
+        <li onclick="zoomTo([18.6067251, -89.8461584])">
+          <img src="iconos/punto_13.png" alt="" /> Zona Arqueológica de Nadzca'an
+        </li>
+        <li onclick="zoomTo([18.5575854, -89.9452691])">
+          <img src="iconos/punto_16.png" alt="" /> Zona Arqueológica de Balamkú
+        </li>
       </ul>
     </details>
 
+    <!-- Grupo: Estaciones del Tren -->
     <details>
       <summary>Estaciones del Tren</summary>
       <ul>
-        <li onclick="zoomTo([18.61234330920191, -90.73140499093059])"><img src='iconos/punto_6.png'> Estación Centenario</li>
-        <li onclick="zoomTo([18.5314818153254, -89.9038826369206])"><img src='iconos/punto_3.png'> Estación Calakmul</li>
-        <li onclick="zoomTo([18.52647219773993, -89.39660850331184])"><img src='iconos/punto_5.png'> Estación Xpujil</li>
+        <li onclick="zoomTo([18.61234330920191, -90.73140499093059])">
+          <img src="iconos/punto_6.png" alt="" /> Estación Centenario
+        </li>
+        <li onclick="zoomTo([18.5314818153254, -89.9038826369206])">
+          <img src="iconos/punto_3.png" alt="" /> Estación Calakmul
+        </li>
+        <li onclick="zoomTo([18.52647219773993, -89.39660850331184])">
+          <img src="iconos/punto_5.png" alt="" /> Estación Xpujil
+        </li>
       </ul>
     </details>
 
+    <!-- Grupo: Infraestructura -->
     <details>
       <summary>Infraestructura</summary>
       <ul>
-        <li onclick="zoomTo([18.53921982121233, -89.90268826117062])"><img src='iconos/punto_2.png'> Gasolinera del Bienestar</li>
-        <li onclick="zoomTo([18.5312604963742, -89.90183440961458])"><img src='iconos/punto_1.png'> Guardía Nacional</li>
-        <li onclick="zoomTo([18.11470025105679, -89.80119074112473])"><img src='iconos/punto_4.png'> Estacionamiento Calakmul</li>
+        <li onclick="zoomTo([18.53921982121233, -89.90268826117062])">
+          <img src="iconos/punto_2.png" alt="" /> Gasolinera del Bienestar
+        </li>
+        <li onclick="zoomTo([18.5312604963742, -89.90183440961458])">
+          <img src="iconos/punto_1.png" alt="" /> Guardía Nacional
+        </li>
+        <li onclick="zoomTo([18.11470025105679, -89.80119074112473])">
+          <img src="iconos/punto_4.png" alt="" /> Estacionamiento Calakmul
+        </li>
       </ul>
     </details>
 
+    <!-- Grupo: Atractivos Naturales -->
     <details>
       <summary>Atractivos Naturales</summary>
       <ul>
-        <li onclick="zoomTo([18.6395458, -90.2804921])"><img src='iconos/punto_11.png'> Laguna de Sylvituc</li>
-        <li onclick="zoomTo([18.3082781, -89.857044])"><img src='iconos/punto_9.png'> Aguada Km 27 - Cocodrilo</li>
-        <li onclick="zoomTo([18.3889335, -89.8977838])"><img src='iconos/punto_10.png'> Aguada Km 15 - Tapires</li>
-        <li onclick="zoomTo([18.2482375, -89.8059097])"><img src='iconos/punto_8.png'> Dormitorio de los monos</li>
-        <li onclick="zoomTo([18.5234222, -89.8238143])"><img src='iconos/punto_7.png'> Cueva de los murciélagos</li>
+        <li onclick="zoomTo([18.6395458, -90.2804921])">
+          <img src="iconos/punto_11.png" alt="" /> Laguna de Sylvituc
+        </li>
+        <li onclick="zoomTo([18.3082781, -89.857044])">
+          <img src="iconos/punto_9.png" alt="" /> Aguada Km 27 – Cocodrilo y Venados
+        </li>
+        <li onclick="zoomTo([18.3889335, -89.8977838])">
+          <img src="iconos/punto_10.png" alt="" /> Aguada Km 15 – Tapires
+        </li>
+        <li onclick="zoomTo([18.2482375, -89.8059097])">
+          <img src="iconos/punto_8.png" alt="" /> Dormitorio de los monos
+        </li>
+        <li onclick="zoomTo([18.5234222, -89.8238143])">
+          <img src="iconos/punto_7.png" alt="" /> Cueva de los murciélagos
+        </li>
       </ul>
     </details>
 
@@ -56,34 +106,56 @@
 </div>
 
 <style>
+  /* Fuente Noto Sans */
   @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
 
   .legend {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 240px;
+    background: #4e2c1d;
+    color: white;
     font-family: 'Noto Sans', sans-serif;
-    font-size: 10pt;
+    border-radius: 8px;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    z-index: 1000;
+    overflow: hidden;
   }
-
+  .legend-compass {
+    text-align: center;
+    font-size: 24px;
+    margin: 6px 0;
+  }
+  .legend details {
+    border-top: 1px solid rgba(255,255,255,0.3);
+  }
   .legend summary {
     font-weight: 700;
     font-size: 12pt;
+    padding: 8px 12px;
+    list-style: none;
+    cursor: pointer;
   }
-
-  .legend li {
-    font-weight: 400;
-    font-size: 10pt;
-    margin-bottom: 4px;
-  }
-
-  .legend img {
-    vertical-align: middle;
-    margin-right: 8px;
-    width: 24px;
-    height: 24px;
-  }
-
   .legend ul {
     list-style: none;
-    padding-left: 10px;
-    margin-top: 5px;
+    margin: 0;
+    padding: 4px 16px 8px;
+  }
+  .legend li {
+    display: flex;
+    align-items: center;
+    font-weight: 400;
+    font-size: 10pt;
+    margin: 4px 0;
+    cursor: pointer;
+  }
+  .legend li img {
+    width: 20px;
+    height: 20px;
+    margin-right: 8px;
+  }
+  .legend-reset ul {
+    padding: 4px 16px;
   }
 </style>
