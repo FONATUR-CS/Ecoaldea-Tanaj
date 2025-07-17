@@ -28,7 +28,7 @@
       map.setView(latlng, 16, { animate: true });
     }
 
-    // Cargar puntos con íconos desde properties.Id directamente
+    // Cargar puntos GeoJSON con íconos "punto_{Id}.png"
     fetch('data/puntos.geojson')
       .then(response => response.json())
       .then(data => {
@@ -40,7 +40,7 @@
           pointToLayer: function (feature, latlng) {
             const id = feature.properties.Id || "default";
             const icon = L.icon({
-              iconUrl: 'iconos/' + id + '.png',
+              iconUrl: 'iconos/punto_' + id + '.png',
               iconSize: [30, 30],
               iconAnchor: [15, 30]
             });
@@ -49,7 +49,7 @@
         }).addTo(map);
       });
 
-    // Cargar leyenda
+    // Cargar leyenda externa
     fetch('legend.html')
       .then(res => res.text())
       .then(html => {
