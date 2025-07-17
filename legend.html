@@ -1,24 +1,25 @@
+<!-- legend.html -->
 <div class="legend">
   <!-- Brújula 🧭 encima del título -->
   <div class="legend-compass">🧭</div>
 
   <!-- Contenedor principal “Simbología” -->
   <details>
-    <summary><strong>Simbología</strong></summary>
+    <summary>Simbología</summary>
 
-    <!-- Botón “Volver a inicio” con la casita -->
+    <!-- Botón “Volver a inicio” con casita -->
     <ul class="legend-reset">
       <li onclick="resetView()">
         🏡 Volver a inicio
       </li>
     </ul>
 
-    <!-- Grupo “Ecoaldea Tanaj” (antes “Otros”) -->
+    <!-- Grupo “Ecoaldea Tanaj” -->
     <details>
       <summary>Ecoaldea Tanaj</summary>
       <ul>
         <li onclick="zoomTo([18.5376569, -89.9006171])">
-          <img src="iconos/punto_18.png" /> Ecoaldea Tanaj
+          <img src="iconos/punto_18.png" alt="" /> Ecoaldea Tanaj
         </li>
       </ul>
     </details>
@@ -28,22 +29,22 @@
       <summary>Zonas Arqueológicas</summary>
       <ul>
         <li onclick="zoomTo([18.5106874, -89.4063669])">
-          <img src="iconos/punto_12.png" /> Zona Arqueológica Xpuhil
+          <img src="iconos/punto_12.png" alt="" /> Zona Arqueológica Xpuhil
         </li>
         <li onclick="zoomTo([18.5068426, -89.4868319])">
-          <img src="iconos/punto_17.png" /> Zona Arqueológica Chicanná
+          <img src="iconos/punto_17.png" alt="" /> Zona Arqueológica Chicanná
         </li>
         <li onclick="zoomTo([18.516707, -89.4657862])">
-          <img src="iconos/punto_15.png" /> Zona Arqueológica de Becán
+          <img src="iconos/punto_15.png" alt="" /> Zona Arqueológica de Becán
         </li>
         <li onclick="zoomTo([18.1058665, -89.8102324])">
-          <img src="iconos/punto_14.png" /> Zona Arqueológica de Calakmul
+          <img src="iconos/punto_14.png" alt="" /> Zona Arqueológica de Calakmul
         </li>
         <li onclick="zoomTo([18.6067251, -89.8461584])">
-          <img src="iconos/punto_13.png" /> Zona Arqueológica de Nadzca’an
+          <img src="iconos/punto_13.png" alt="" /> Zona Arqueológica de Nadzca’an
         </li>
         <li onclick="zoomTo([18.5575854, -89.9452691])">
-          <img src="iconos/punto_16.png" /> Zona Arqueológica de Balamkú
+          <img src="iconos/punto_16.png" alt="" /> Zona Arqueológica de Balamkú
         </li>
       </ul>
     </details>
@@ -53,13 +54,13 @@
       <summary>Estaciones del Tren</summary>
       <ul>
         <li onclick="zoomTo([18.61234330920191, -90.73140499093059])">
-          <img src="iconos/punto_6.png" /> Estación Centenario
+          <img src="iconos/punto_6.png" alt="" /> Estación Centenario
         </li>
         <li onclick="zoomTo([18.5314818153254, -89.9038826369206])">
-          <img src="iconos/punto_3.png" /> Estación Calakmul
+          <img src="iconos/punto_3.png" alt="" /> Estación Calakmul
         </li>
         <li onclick="zoomTo([18.52647219773993, -89.39660850331184])">
-          <img src="iconos/punto_5.png" /> Estación Xpujil
+          <img src="iconos/punto_5.png" alt="" /> Estación Xpujil
         </li>
       </ul>
     </details>
@@ -69,13 +70,13 @@
       <summary>Infraestructura</summary>
       <ul>
         <li onclick="zoomTo([18.53921982121233, -89.90268826117062])">
-          <img src="iconos/punto_2.png" /> Gasolinera del Bienestar
+          <img src="iconos/punto_2.png" alt="" /> Gasolinera del Bienestar
         </li>
         <li onclick="zoomTo([18.5312604963742, -89.90183440961458])">
-          <img src="iconos/punto_1.png" /> Guardia Nacional
+          <img src="iconos/punto_1.png" alt="" /> Guardia Nacional
         </li>
         <li onclick="zoomTo([18.11470025105679, -89.80119074112473])">
-          <img src="iconos/punto_4.png" /> Estacionamiento Calakmul
+          <img src="iconos/punto_4.png" alt="" /> Estacionamiento Calakmul
         </li>
       </ul>
     </details>
@@ -85,19 +86,19 @@
       <summary>Atractivos Naturales</summary>
       <ul>
         <li onclick="zoomTo([18.6395458, -90.2804921])">
-          <img src="iconos/punto_11.png" /> Laguna de Sylvituc
+          <img src="iconos/punto_11.png" alt="" /> Laguna de Sylvituc
         </li>
         <li onclick="zoomTo([18.3082781, -89.857044])">
-          <img src="iconos/punto_9.png" /> Aguada Km 27 – Cocodrilo y Venados
+          <img src="iconos/punto_9.png" alt="" /> Aguada Km 27 – Cocodrilo y Venados
         </li>
         <li onclick="zoomTo([18.3889335, -89.8977838])">
-          <img src="iconos/punto_10.png" /> Aguada Km 15 – Tapires
+          <img src="iconos/punto_10.png" alt="" /> Aguada Km 15 – Tapires
         </li>
         <li onclick="zoomTo([18.2482375, -89.8059097])">
-          <img src="iconos/punto_8.png" /> Dormitorio de los monos
+          <img src="iconos/punto_8.png" alt="" /> Dormitorio de los monos
         </li>
         <li onclick="zoomTo([18.5234222, -89.8238143])">
-          <img src="iconos/punto_7.png" /> Cueva de los murciélagos
+          <img src="iconos/punto_7.png" alt="" /> Cueva de los murciélagos
         </li>
       </ul>
     </details>
@@ -106,58 +107,55 @@
 </div>
 
 <style>
-  /* Fuente Noto Sans */
-  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
-
+  /* Fuente Noto Sans ya importada en index.html */
   .legend {
     position: absolute;
-    top: 10px;
-    right: 10px;
-    width: 240px;
+    top: 10px; right: 10px;
+    width: 260px;
     background: #4e2c1d;
     color: white;
     font-family: 'Noto Sans', sans-serif;
     border-radius: 8px;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
     z-index: 1000;
     overflow: hidden;
   }
+
   .legend-compass {
     text-align: center;
-    font-size: 24px;
+    font-size: 28px;
     margin: 6px 0;
   }
+
   .legend details {
     border-top: 1px solid rgba(255,255,255,0.3);
   }
-  /* Espacio para INFOTANAJ_rec.png */
+
+  /* Elimina pseudo-elementos anteriores */
+  .legend details > summary::before {
+    display: none;
+  }
+
+  /* Aplica tu “pill” detrás de cada título de grupo */
   .legend details > summary {
-    position: relative;
-    padding-left: 48px;
+    background: url('iconos/INFOTANAJ_rec.png') no-repeat center center;
+    background-size: cover;
+    color: #fff;
+    padding: 8px 16px;
+    margin: 4px 0;
+    border-radius: 20px;
     font-weight: 700;
     font-size: 12pt;
     cursor: pointer;
     list-style: none;
   }
-  /* Inserta INFOTANAJ_rec.png detrás del texto */
-  .legend details > summary::before {
-    content: "";
-    position: absolute;
-    left: 8px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 32px;
-    height: 32px;
-    background-image: url('iconos/INFOTANAJ_rec.png');
-    background-size: contain;
-    background-repeat: no-repeat;
-    z-index: -1;
-  }
+
   .legend ul {
     list-style: none;
     margin: 0;
     padding: 4px 16px 8px;
   }
+
   .legend li {
     display: flex;
     align-items: center;
@@ -166,11 +164,13 @@
     margin: 4px 0;
     cursor: pointer;
   }
+
   .legend li img {
     width: 20px;
     height: 20px;
     margin-right: 8px;
   }
+
   .legend-reset ul {
     padding: 4px 16px;
   }
