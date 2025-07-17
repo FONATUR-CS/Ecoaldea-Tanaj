@@ -28,19 +28,19 @@
       map.setView(latlng, 16, { animate: true });
     }
 
-    // Cargar puntos GeoJSON con íconos "punto_{Id}.png"
+    // Cargar puntos GeoJSON con íconos punto_{Id}.png
     fetch('data/puntos.geojson')
       .then(response => response.json())
       .then(data => {
         L.geoJSON(data, {
           onEachFeature: function (feature, layer) {
-            const nombre = feature.properties.Nombre || nombre;
+            const nombre = feature.properties.Nombre || "Sin nombre";
             layer.bindPopup(nombre);
           },
           pointToLayer: function (feature, latlng) {
             const id = feature.properties.Id || "default";
             const icon = L.icon({
-              iconUrl: 'iconos/punto_' + Id + '.png',
+              iconUrl: 'iconos/punto_' + id + '.png',
               iconSize: [30, 30],
               iconAnchor: [15, 30]
             });
