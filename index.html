@@ -21,44 +21,44 @@
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
     const map = L.map('map').setView([18.51, -89.88], 10);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {{
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
       attribution: '&copy; OpenStreetMap contributors'
-    }}).addTo(map);
+    }).addTo(map);
 
     // Función zoom animado
-    function zoomTo(latlng) {{
-      map.setView(latlng, 16, {{ animate: true }});
-    }}
+    function zoomTo(latlng) {
+      map.setView(latlng, 16, { animate: true });
+    }
 
     // Cargar puntos desde GeoJSON
     fetch('data/puntos.geojson')
       .then(response => response.json())
-      .then(data => {{
-        L.geoJSON(data, {{
-          onEachFeature: function (feature, layer) {{
+      .then(data => {
+        L.geoJSON(data, {
+          onEachFeature: function (feature, layer) {
             const nombre = feature.properties.Nombre || "Sin nombre";
             layer.bindPopup(nombre);
-          }},
-          pointToLayer: function (feature, latlng) {{
-            return L.marker(latlng, {{
-              icon: L.icon({{
+          },
+          pointToLayer: function (feature, latlng) {
+            return L.marker(latlng, {
+              icon: L.icon({
                 iconUrl: 'iconos/default.png',
                 iconSize: [30, 30],
                 iconAnchor: [15, 30]
-              }})
-            }});
-          }}
-        }}).addTo(map);
-      }});
+              })
+            });
+          }
+        }).addTo(map);
+      });
 
     // Cargar leyenda desde archivo externo
     fetch('legend.html')
       .then(res => res.text())
-      .then(html => {{
+      .then(html => {
         const div = document.createElement('div');
         div.innerHTML = html;
         document.body.appendChild(div);
-      }});
+      });
   </script>
 </body>
 </html>
