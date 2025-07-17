@@ -16,7 +16,6 @@
 </head>
 <body>
   <div id="map"></div>
-  <!-- Se insertará automáticamente legend.html aquí vía fetch() -->
 
   <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
   <script>
@@ -25,12 +24,11 @@
       attribution: '&copy; OpenStreetMap contributors'
     }).addTo(map);
 
-    // Función zoom animado
     function zoomTo(latlng) {
       map.setView(latlng, 16, { animate: true });
     }
 
-    // Cargar puntos desde GeoJSON
+    // Cargar puntos desde GeoJSON con íconos dinámicos
     fetch('data/puntos.geojson')
       .then(response => response.json())
       .then(data => {
@@ -40,18 +38,18 @@
             layer.bindPopup(nombre);
           },
           pointToLayer: function (feature, latlng) {
-            return L.marker(latlng, {
-              icon: L.icon({
-                iconUrl: 'iconos/default.png',
-                iconSize: [30, 30],
-                iconAnchor: [15, 30]
-              })
+            const id = feature.id || "default";
+            const icon = L.icon({
+              iconUrl: 'iconos/punto_' + id + '.png',
+              iconSize: [30, 30],
+              iconAnchor: [15, 30]
             });
+            return L.marker(latlng, { icon: icon });
           }
         }).addTo(map);
       });
 
-    // Cargar leyenda desde archivo externo
+    // Cargar leyenda externa
     fetch('legend.html')
       .then(res => res.text())
       .then(html => {
