@@ -4,7 +4,7 @@ Este repositorio contiene el mapa interactivo con íconos personalizados y los d
 
 ## 🔗 Mapa Interactivo
 
-📍 [Ver Mapa](./mapa_tanaj_github_iconos_ok.html)
+📍 [Ver Mapa](https://fonatur-cs.github.io/Ecoaldea-Tanaj/)
 
 > Asegúrate de subir también la carpeta `/iconos/` al mismo nivel que el HTML y habilitar GitHub Pages en la configuración del repositorio.
 
