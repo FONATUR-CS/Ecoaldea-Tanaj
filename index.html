@@ -55,8 +55,9 @@
       header: true,
       complete(results) {
         results.data.forEach(row => {
-          if (row.Id) {
-            csvById[row.Id] = row;
+          // Aquí usamos row.id (minúscula), tal como está en tu CSV
+          if (row.id !== undefined && row.id !== "") {
+            csvById[String(row.id)] = row;
           }
         });
         loadGeoJSON();
@@ -73,7 +74,9 @@
         .then(geojson => {
           L.geoJSON(geojson, {
             pointToLayer(feature, latlng) {
-              const id = feature.properties.Id;
+              // Soporte para Id en mayúscula o minúscula
+              const rawId = feature.properties.Id ?? feature.properties.id;
+              const id = String(rawId);
               return L.marker(latlng, {
                 icon: L.icon({
                   iconUrl: `iconos/punto_${id}.png`,
@@ -84,21 +87,23 @@
             },
             onEachFeature(feature, layer) {
               const props = feature.properties;
-              const id = props.Id;
+              const rawId = props.Id ?? props.id;
+              const id = String(rawId);
               const row = csvById[id] || {};
-              // Construir HTML del popup
+              // Extraemos los campos
               const distancia = row["Distancia a Tanaj"] || 'N/D';
-              const ubicLink = row.Ubicación
-                ? `<a href="${row.Ubicación}" target="_blank">Ver ubicación</a>`
+              const ubic = row["Ubicación"] 
+                ? `<a href="${row["Ubicación"]}" target="_blank">Ver ubicación</a>` 
                 : '';
-              const infoLink = row["Información relevante"]
-                ? `<a href="${row["Información relevante"]}" target="_blank">Más info</a>`
+              const info = row["Información relevante"]
+                ? `<a href="${row["Información relevante"]}" target="_blank">Más info</a>` 
                 : '';
+              // Construimos el popup
               const html = `
                 <h3>${props.Nombre || 'Sin nombre'}</h3>
                 <p><strong>Distancia a Tanaj:</strong> ${distancia}</p>
-                <p>${ubicLink}</p>
-                <p>${infoLink}</p>
+                ${ubic ? `<p>${ubic}</p>` : ''}
+                ${info ? `<p>${info}</p>` : ''}
               `;
               layer.bindPopup(html);
             }
