@@ -2,73 +2,91 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Ecoaldea Tanaj</title>
+  <title>Ecoaldea Tanaj – Mapa con Datos</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <!-- Leaflet CSS -->
-  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
-  <!-- Fuente Noto Sans -->
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+
+  <!-- PapaParse (para CSV) -->
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+
   <style>
     body, html { margin:0; padding:0; height:100%; }
-    #map { height:100%; width:100%; }
+    #map { width:100%; height:100%; }
   </style>
 </head>
 <body>
 
-  <div id="map"></div>
+<div id="map"></div>
 
-  <!-- Leaflet JS -->
-  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-  <script>
-    // 1) Guardar vista inicial
-    const initialView = { center: [18.51, -89.88], zoom: 10 };
-    const map = L.map('map').setView(initialView.center, initialView.zoom);
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+<script>
+  // 1. Inicializa el mapa
+  const map = L.map('map').setView([18.51, -89.88], 10);
+  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+    attribution: '&copy; OpenStreetMap contributors'
+  }).addTo(map);
 
-    // Capa base OpenStreetMap
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
-
-    // Función para resetear a vista inicial
-    function resetView() {
-      map.setView(initialView.center, initialView.zoom, { animate: true });
+  // 2. Carga CSV y crea un diccionario por Id
+  let csvDataById = {};
+  Papa.parse('data/Listado_de_Puntos.csv', {
+    download: true,
+    header: true,
+    complete: function(results) {
+      results.data.forEach(row => {
+        // Asegúrate de que CSV tenga columna "Id" idéntica al GeoJSON
+        if (row.Id) {
+          csvDataById[row.Id] = row;
+        }
+      });
+      // Una vez que el CSV esté listo, carga el GeoJSON
+      loadGeoJSON();
     }
+  });
 
-    // Función para hacer zoom a una coordenada
-    function zoomTo(latlng) {
-      map.setView(latlng, 16, { animate: true });
-    }
-
-    // 2) Cargar puntos desde GeoJSON con íconos dinámicos por Id
+  function loadGeoJSON() {
     fetch('data/puntos.geojson')
-      .then(res => res.json())
-      .then(data => {
-        L.geoJSON(data, {
+      .then(r => r.json())
+      .then(geojson => {
+        L.geoJSON(geojson, {
           pointToLayer: (feature, latlng) => {
-            const id = feature.properties.Id || 'default';
+            // Toma el Id desde feature.properties.Id
+            const id = feature.properties.Id;
+            // Crea un icono basado en el mismo esquema que tenías:
             const icon = L.icon({
               iconUrl: `iconos/punto_${id}.png`,
-              iconSize: [30, 30],
-              iconAnchor: [15, 30]
+              iconSize: [30,30],
+              iconAnchor: [15,30]
             });
             return L.marker(latlng, { icon });
           },
           onEachFeature: (feature, layer) => {
-            const nombre = feature.properties.Nombre || 'Sin nombre';
-            layer.bindPopup(`<strong>${nombre}</strong>`);
+            const props = feature.properties;
+            const id = props.Id;
+            // Busca la fila del CSV
+            const row = csvDataById[id] || {};
+            // Prepara los enlaces HTML
+            const ubicacion = row.Ubicación
+              ? `<a href="${row.Ubicación}" target="_blank">Ver ubicación</a>`
+              : '';
+            const extraInfo = row["Información relevante"]
+              ? `<a href="${row["Información relevante"]}" target="_blank">Más info</a>`
+              : '';
+            // Construye el contenido del popup
+            const content = `
+              <h3>${props.Nombre || 'Sin nombre'}</h3>
+              <p><strong>Distancia a Tanaj: </strong>${row["Distancia a Tanaj"] || 'N/D'}</p>
+              <p>${ubicacion}</p>
+              <p>${extraInfo}</p>
+            `;
+            layer.bindPopup(content);
           }
         }).addTo(map);
       });
-
-    // 3) Cargar leyenda externa
-    fetch('legend.html')
-      .then(res => res.text())
-      .then(html => {
-        const div = document.createElement('div');
-        div.innerHTML = html;
-        document.body.appendChild(div);
-      });
-  </script>
+  }
+</script>
 
 </body>
 </html>
