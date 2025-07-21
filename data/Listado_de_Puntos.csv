@@ -1,19 +1,19 @@
-﻿id,Tipo,Subtipo,Nombre
-punto_1,Servicios,GN,Guardia Nacional
-punto_2,Servicios,gas,Gasolinera del Bienestar
-punto_3,Transporte,estacion_calakmul,Estación Calakmul
-punto_4,Servicios,estacionamiento,Estacionamiento Calakmul
-punto_5,Transporte,estacion_xpujil,Estación Xpujil
-punto_6,Transporte,estacion_centenario,Estación Centenario
-punto_7,Atrativos,1,Cueva de los murciélagos
-punto_8,Atrativos,2,Dormitorio de los monos
-punto_9,Atrativos,3,Aguada Km 27-Cocodrilo y venados
-punto_10,Atrativos,4,"Aguada km 15, Tapires"
-punto_11,Atrativos,5,Laguna de Sylvituc
-punto_12,Zonas Arqueológicas,6,Zona Arqueológica Xpuhil
-punto_13,Zonas Arqueológicas,2,Zona Arqueológica de Nadzca'an
-punto_14,Zonas Arqueológicas,3,Zona Arqueológica de Calakmul
-punto_15,Zonas Arqueológicas,4,Zona Arqueológica de Becán
-punto_16,Zonas Arqueológicas,1,Zona Arqueológica de Balamkú
-punto_17,Zonas Arqueológicas,5,Zona Arqueológica Chicanná
-punto_18,Ecoaldea,tanaj,Tanaj
+﻿id,Tipo,Subtipo,Nombre,Distancia a Tanaj,Ubicación,Información relevante
+1,Servicios,GN,Guardia Nacional,,https://maps.app.goo.gl/CSNLUTDsiqTen3sx6,https://x.com/GN_MEXICO_/status/1669097122585792512
+2,Servicios,gas,Gasolinera del Bienestar,,https://maps.app.goo.gl/53QFZVvqouF1mM4AA,https://www.gob.mx/asea/prensa/litros-de-a-litro-a-precios-justos-gasolinera-bienestar-del-sureste-inicia-operaciones?idiom=es
+3,Transporte,estacion_calakmul,Estación Calakmul,,https://maps.app.goo.gl/YNztTUAWLnidzcuw7,https://infotrenmaya.com.mx/tramo-7/estacion-calakmul/
+4,Servicios,estacionamiento,Estacionamiento Calakmul,,https://maps.app.goo.gl/428vpbGB8p5mTGPa9,https://www.inah.gob.mx/zonas/zona-arqueologica-de-calakmul
+5,Transporte,estacion_xpujil,Estación Xpujil,,https://maps.app.goo.gl/ohgySCGPud64PHZk6,https://infotrenmaya.com.mx/tramo-7/estacion-xpujil/
+6,Transporte,estacion_centenario,Estación Centenario,,https://maps.app.goo.gl/mmAAjDGZ3QA95Mv97,https://infotrenmaya.com.mx/tramo-7/estacion-centenario/
+7,Atrativos,1,Cueva de los murciélagos,8.8 km,https://maps.app.goo.gl/RajXH1qpoU1LwL4A9,https://blogs.ciencia.unam.mx/lahuella/2016/02/22/murcielagos-de-mexico-el-volcan-de-los-murcielagos-en-calakmul/
+8,Atrativos,2,Dormitorio de los monos,38 km,https://maps.app.goo.gl/xHqnbcMEw58CpAUd9,https://descubreanp.conanp.gob.mx/es/conanp/ANP?suri=20
+9,Atrativos,3,"Aguada, Cocodrilos y Venados",27 km,https://maps.app.goo.gl/WsDNscMzWXmxmkYk7,http://individual.utoronto.ca/georginaofarr/xoxo_ofarrill/Publications_files/Biodiversitas%2093.pdf
+10,Atrativos,4,"Aguada, Tapires",15 km,https://maps.app.goo.gl/FHAo39gAcDTX5VqA9,http://individual.utoronto.ca/georginaofarr/xoxo_ofarrill/Publications_files/Biodiversitas%2093.pdf
+11,Atrativos,5,Laguna de Sylvituc,45 km,https://maps.app.goo.gl/Sh6qwnn5hKiKKHvE9,https://serviciossilvituc.wixsite.com/servturistsilvituc/laguna-silvituc-1
+12,Zonas Arqueológicas,6,Zona Arqueológica Xpuhil,56 km,https://maps.app.goo.gl/BnCD7Sg84ffCAuiy6,https://www.inah.gob.mx/zonas/71-zona-arqueologica-xpuhil
+13,Zonas Arqueológicas,2,Zona Arqueológica de Nadzca'an,13 km,https://maps.app.goo.gl/VKwq2PphVJV9i9fi8,https://lugares.inah.gob.mx/es/node/4441
+14,Zonas Arqueológicas,3,Zona Arqueológica de Calakmul,60 km,https://maps.app.goo.gl/4G7Ha3syupfxMMGPA,https://www.inah.gob.mx/zonas/zona-arqueologica-de-calakmul
+15,Zonas Arqueológicas,4,Zona Arqueológica de Becán,48 km,https://maps.app.goo.gl/ukY6UhyTGCwF3his8,https://www.inah.gob.mx/zonas/zona-arqueologica-de-becan
+16,Zonas Arqueológicas,1,Zona Arqueológica de Balamkú,5.4 km,https://maps.app.goo.gl/78HvDtqWS2oZ4XBx8,https://www.inah.gob.mx/zonas/zona-arqueologica-de-balamku
+17,Zonas Arqueológicas,5,Zona Arqueológica Chicanná,47 km,https://maps.app.goo.gl/i1UdoSNKUfZnocfv6,https://www.inah.gob.mx/zonas/zona-arqueologica-chicanna
+18,Ecoaldea,Tanaj,Ecoaldea Tanaj,0 km,https://maps.app.goo.gl/hNu1k73Askuzrw6YA,https://www.ecoaldeatanaj.com/es/index.html
