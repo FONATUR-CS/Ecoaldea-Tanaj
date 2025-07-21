@@ -12,81 +12,100 @@
   <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
 
   <style>
-    body, html { margin:0; padding:0; height:100%; }
+    html, body { margin:0; padding:0; height:100%; }
     #map { width:100%; height:100%; }
   </style>
 </head>
 <body>
 
-<div id="map"></div>
+  <div id="map"></div>
 
-<!-- Leaflet JS -->
-<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-<script>
-  // 1. Inicializa el mapa
-  const map = L.map('map').setView([18.51, -89.88], 10);
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '&copy; OpenStreetMap contributors'
-  }).addTo(map);
+  <!-- Leaflet JS -->
+  <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+  <script>
+    // --- 1) Inicia el mapa ---
+    const initialView = { center: [18.51, -89.88], zoom: 10 };
+    const map = L.map('map').setView(initialView.center, initialView.zoom);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
 
-  // 2. Carga CSV y crea un diccionario por Id
-  let csvDataById = {};
-  Papa.parse('data/Listado_de_Puntos.csv', {
-    download: true,
-    header: true,
-    complete: function(results) {
-      results.data.forEach(row => {
-        // Asegúrate de que CSV tenga columna "Id" idéntica al GeoJSON
-        if (row.Id) {
-          csvDataById[row.Id] = row;
-        }
-      });
-      // Una vez que el CSV esté listo, carga el GeoJSON
-      loadGeoJSON();
+    // Funciones de control de vista
+    function resetView() {
+      map.setView(initialView.center, initialView.zoom, { animate: true });
     }
-  });
+    function zoomTo(latlng) {
+      map.setView(latlng, 16, { animate: true });
+    }
 
-  function loadGeoJSON() {
-    fetch('data/puntos.geojson')
-      .then(r => r.json())
-      .then(geojson => {
-        L.geoJSON(geojson, {
-          pointToLayer: (feature, latlng) => {
-            // Toma el Id desde feature.properties.Id
-            const id = feature.properties.Id;
-            // Crea un icono basado en el mismo esquema que tenías:
-            const icon = L.icon({
-              iconUrl: `iconos/punto_${id}.png`,
-              iconSize: [30,30],
-              iconAnchor: [15,30]
-            });
-            return L.marker(latlng, { icon });
-          },
-          onEachFeature: (feature, layer) => {
-            const props = feature.properties;
-            const id = props.Id;
-            // Busca la fila del CSV
-            const row = csvDataById[id] || {};
-            // Prepara los enlaces HTML
-            const ubicacion = row.Ubicación
-              ? `<a href="${row.Ubicación}" target="_blank">Ver ubicación</a>`
-              : '';
-            const extraInfo = row["Información relevante"]
-              ? `<a href="${row["Información relevante"]}" target="_blank">Más info</a>`
-              : '';
-            // Construye el contenido del popup
-            const content = `
-              <h3>${props.Nombre || 'Sin nombre'}</h3>
-              <p><strong>Distancia a Tanaj: </strong>${row["Distancia a Tanaj"] || 'N/D'}</p>
-              <p>${ubicacion}</p>
-              <p>${extraInfo}</p>
-            `;
-            layer.bindPopup(content);
+    // --- 2) Inyectar la leyenda externa ---
+    fetch('legend.html')
+      .then(res => res.text())
+      .then(html => {
+        const div = document.createElement('div');
+        div.innerHTML = html;
+        document.body.appendChild(div);
+      })
+      .catch(err => console.error('No se pudo cargar legend.html:', err));
+
+    // --- 3) Carga y parseo del CSV ---
+    let csvById = {};
+    Papa.parse('data/Listado_de_Puntos.csv', {
+      download: true,
+      header: true,
+      complete(results) {
+        results.data.forEach(row => {
+          if (row.Id) {
+            csvById[row.Id] = row;
           }
-        }).addTo(map);
-      });
-  }
-</script>
+        });
+        loadGeoJSON();
+      },
+      error(err) {
+        console.error('Error leyendo CSV:', err);
+      }
+    });
 
+    // --- 4) Carga del GeoJSON y unión con CSV ---
+    function loadGeoJSON() {
+      fetch('data/puntos.geojson')
+        .then(r => r.json())
+        .then(geojson => {
+          L.geoJSON(geojson, {
+            pointToLayer(feature, latlng) {
+              const id = feature.properties.Id;
+              return L.marker(latlng, {
+                icon: L.icon({
+                  iconUrl: `iconos/punto_${id}.png`,
+                  iconSize: [30,30],
+                  iconAnchor: [15,30]
+                })
+              });
+            },
+            onEachFeature(feature, layer) {
+              const props = feature.properties;
+              const id = props.Id;
+              const row = csvById[id] || {};
+              // Construir HTML del popup
+              const distancia = row["Distancia a Tanaj"] || 'N/D';
+              const ubicLink = row.Ubicación
+                ? `<a href="${row.Ubicación}" target="_blank">Ver ubicación</a>`
+                : '';
+              const infoLink = row["Información relevante"]
+                ? `<a href="${row["Información relevante"]}" target="_blank">Más info</a>`
+                : '';
+              const html = `
+                <h3>${props.Nombre || 'Sin nombre'}</h3>
+                <p><strong>Distancia a Tanaj:</strong> ${distancia}</p>
+                <p>${ubicLink}</p>
+                <p>${infoLink}</p>
+              `;
+              layer.bindPopup(html);
+            }
+          }).addTo(map);
+        })
+        .catch(err => console.error('No se pudo cargar puntos.geojson:', err));
+    }
+  </script>
 </body>
 </html>
