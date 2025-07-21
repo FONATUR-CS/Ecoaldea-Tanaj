@@ -1,10 +1,10 @@
 ﻿id,Tipo,Subtipo,Nombre,Distancia a Tanaj,Ubicación,Información relevante
-1,Servicios,GN,Guardia Nacional,,https://maps.app.goo.gl/CSNLUTDsiqTen3sx6,https://x.com/GN_MEXICO_/status/1669097122585792512
-2,Servicios,gas,Gasolinera del Bienestar,,https://maps.app.goo.gl/53QFZVvqouF1mM4AA,https://www.gob.mx/asea/prensa/litros-de-a-litro-a-precios-justos-gasolinera-bienestar-del-sureste-inicia-operaciones?idiom=es
-3,Transporte,estacion_calakmul,Estación Calakmul,,https://maps.app.goo.gl/YNztTUAWLnidzcuw7,https://infotrenmaya.com.mx/tramo-7/estacion-calakmul/
-4,Servicios,estacionamiento,Estacionamiento Calakmul,,https://maps.app.goo.gl/428vpbGB8p5mTGPa9,https://www.inah.gob.mx/zonas/zona-arqueologica-de-calakmul
-5,Transporte,estacion_xpujil,Estación Xpujil,,https://maps.app.goo.gl/ohgySCGPud64PHZk6,https://infotrenmaya.com.mx/tramo-7/estacion-xpujil/
-6,Transporte,estacion_centenario,Estación Centenario,,https://maps.app.goo.gl/mmAAjDGZ3QA95Mv97,https://infotrenmaya.com.mx/tramo-7/estacion-centenario/
+1,Servicios,GN,Guardia Nacional,0.8 km,https://maps.app.goo.gl/CSNLUTDsiqTen3sx6,https://x.com/GN_MEXICO_/status/1669097122585792512
+2,Servicios,gas,Gasolinera del Bienestar,0.5 km,https://maps.app.goo.gl/53QFZVvqouF1mM4AA,https://www.gob.mx/asea/prensa/litros-de-a-litro-a-precios-justos-gasolinera-bienestar-del-sureste-inicia-operaciones?idiom=es
+3,Transporte,estacion_calakmul,Estación Calakmul,0.8 km,https://maps.app.goo.gl/YNztTUAWLnidzcuw7,https://infotrenmaya.com.mx/tramo-7/estacion-calakmul/
+4,Servicios,estacionamiento,Estacionamiento Calakmul,60 km,https://maps.app.goo.gl/428vpbGB8p5mTGPa9,https://www.inah.gob.mx/zonas/zona-arqueologica-de-calakmul
+5,Transporte,estacion_xpujil,Estación Xpujil,58 km,https://maps.app.goo.gl/ohgySCGPud64PHZk6,https://infotrenmaya.com.mx/tramo-7/estacion-xpujil/
+6,Transporte,estacion_centenario,Estación Centenario,44.5 km,https://maps.app.goo.gl/mmAAjDGZ3QA95Mv97,https://infotrenmaya.com.mx/tramo-7/estacion-centenario/
 7,Atrativos,1,Cueva de los murciélagos,8.8 km,https://maps.app.goo.gl/RajXH1qpoU1LwL4A9,https://blogs.ciencia.unam.mx/lahuella/2016/02/22/murcielagos-de-mexico-el-volcan-de-los-murcielagos-en-calakmul/
 8,Atrativos,2,Dormitorio de los monos,38 km,https://maps.app.goo.gl/xHqnbcMEw58CpAUd9,https://descubreanp.conanp.gob.mx/es/conanp/ANP?suri=20
 9,Atrativos,3,"Aguada, Cocodrilos y Venados",27 km,https://maps.app.goo.gl/WsDNscMzWXmxmkYk7,http://individual.utoronto.ca/georginaofarr/xoxo_ofarrill/Publications_files/Biodiversitas%2093.pdf
